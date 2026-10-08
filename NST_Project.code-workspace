@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../style_image"
+		},
+		{
+			"path": "../content_image"
+		},
+		{
+			"path": "../train_2"
+		}
+	],
+	"settings": {}
+}
