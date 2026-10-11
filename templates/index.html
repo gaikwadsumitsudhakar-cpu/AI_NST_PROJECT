@@ -1,607 +1,920 @@
-<style>
-/* STYLEFORGE AI — CLASSIC PREMIUM THEME */
-:root {
-  --sf-bg: #F5F3EE;
-  --sf-surface: #FFFFFF;
-  --sf-ink: #17243A;
-  --sf-muted: #667085;
-  --sf-border: #E3E5E8;
-  --sf-accent: #397C78;
-  --sf-accent-dark: #28625F;
-  --sf-soft: #EDF5F3;
-  --sf-gold: #C5A46D;
-  --sf-shadow: 0 18px 48px rgba(23, 36, 58, 0.08);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', 'Segoe UI', sans-serif !important;
-  background: var(--sf-bg) !important;
-  background-image: none !important;
-  color: var(--sf-ink) !important;
-  min-height: 100vh;
-  line-height: 1.65;
-}
-
-#neuralCanvas,
-.scanlines,
-.orb {
-  display: none !important;
-}
-
-/* Navigation */
-.navbar {
-  position: sticky !important;
-  background: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--sf-border) !important;
-  box-shadow: 0 4px 20px rgba(23, 36, 58, 0.035);
-  padding: 0.8rem 0;
-}
-
-.navbar-brand {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 1.3rem !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.045em;
-  background: none !important;
-  -webkit-text-fill-color: var(--sf-ink) !important;
-  color: var(--sf-ink) !important;
-}
-
-.navbar-brand i {
-  color: var(--sf-accent);
-}
-
-.nav-link {
-  color: #475467 !important;
-  font-size: 0.92rem;
-  font-weight: 600 !important;
-  margin: 0 0.25rem !important;
-}
-
-.nav-link:hover {
-  color: var(--sf-accent) !important;
-}
-
-.nav-link::after {
-  background: var(--sf-accent) !important;
-}
-
-.navbar .btn-outline-light {
-  color: var(--sf-ink) !important;
-  border-color: #D4D8DC !important;
-  font-weight: 600;
-}
-
-/* Hero Section */
-.header-section {
-  padding: 4.6rem 0 2.6rem !important;
-  text-align: left !important;
-}
-
-.header-section .container {
-  max-width: 1120px;
-}
-
-.header-section h1 {
-  font-family: 'Inter', sans-serif !important;
-  font-size: clamp(2.35rem, 5vw, 3.7rem) !important;
-  line-height: 1.1;
-  letter-spacing: -0.065em;
-  font-weight: 800 !important;
-  background: none !important;
-  -webkit-text-fill-color: var(--sf-ink) !important;
-  color: var(--sf-ink) !important;
-  text-shadow: none !important;
-  margin-bottom: 1rem !important;
-}
-
-.header-section .lead {
-  display: block !important;
-  width: auto !important;
-  max-width: 650px !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  border: 0 !important;
-  animation: none !important;
-  color: var(--sf-muted) !important;
-  font-size: 1.08rem !important;
-  margin: 0 !important;
-}
-
-.container {
-  max-width: 1120px;
-}
-
-/* Premium Cards */
-.card {
-  background: var(--sf-surface) !important;
-  backdrop-filter: none !important;
-  border: 1px solid var(--sf-border) !important;
-  border-radius: 20px !important;
-  box-shadow: var(--sf-shadow) !important;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 24px 55px rgba(23, 36, 58, 0.11) !important;
-  border-color: #CDDAD7 !important;
-}
-
-.card-header {
-  background: #FFFFFF !important;
-  border-bottom: 1px solid var(--sf-border) !important;
-  color: var(--sf-ink) !important;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.025em;
-  text-transform: none !important;
-  padding: 1.15rem 1.5rem !important;
-}
-
-.card-body {
-  padding: 1.5rem !important;
-}
-
-.card-footer {
-  background: #FFFFFF !important;
-  border-top: 1px solid var(--sf-border) !important;
-}
-
-/* Image Preview */
-.preview-image {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-  background: #F8F9FA !important;
-  border: 1.5px dashed #CBD5D8 !important;
-  border-radius: 14px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--sf-muted) !important;
-  font-size: 1rem;
-  overflow: hidden;
-  transition: border-color 0.25s, background 0.25s;
-}
-
-.preview-image:hover {
-  border-color: var(--sf-accent) !important;
-  background: var(--sf-soft) !important;
-}
-
-.preview-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Upload Controls */
-.form-control {
-  background-color: #FFFFFF !important;
-  border: 1px solid #D7DCE1 !important;
-  color: var(--sf-ink) !important;
-  border-radius: 10px !important;
-  padding: 0.8rem !important;
-  font-size: 0.92rem;
-}
-
-.form-control:focus {
-  background-color: #FFFFFF !important;
-  border-color: var(--sf-accent) !important;
-  color: var(--sf-ink) !important;
-  box-shadow: 0 0 0 4px rgba(57, 124, 120, 0.12) !important;
-}
-
-.form-control::file-selector-button {
-  background: var(--sf-soft) !important;
-  color: var(--sf-accent-dark) !important;
-  border: 0 !important;
-  padding: 0.55rem 0.9rem !important;
-  margin-right: 0.8rem !important;
-  border-radius: 7px !important;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.form-control::file-selector-button:hover {
-  background: #DCECE8 !important;
-}
-
-/* Primary Button */
-.btn-primary {
-  background: var(--sf-accent) !important;
-  border: 1px solid var(--sf-accent) !important;
-  color: #FFFFFF !important;
-  padding: 14px 36px !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  border-radius: 12px !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
-  box-shadow: 0 6px 16px rgba(57, 124, 120, 0.18) !important;
-  transition: all 0.25s ease;
-}
-
-.btn-primary:hover {
-  background: var(--sf-accent-dark) !important;
-  border-color: var(--sf-accent-dark) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(57, 124, 120, 0.24) !important;
-}
-
-.btn-glow {
-  animation: none !important;
-}
-
-/* Style Strength Slider */
-.range-wrap {
-  position: relative;
-  margin: 2.5rem auto;
-  width: 100%;
-  max-width: 90%;
-}
-
-.range-wrap label {
-  color: var(--sf-ink) !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-#alphaRange {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 7px;
-  background: #E1E6E8;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  box-shadow: none;
-}
-
-#alphaRange::-webkit-slider-runnable-track {
-  height: 7px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-#alphaRange::-webkit-slider-thumb {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 21px;
-  height: 21px;
-  margin-top: -7px;
-  border-radius: 50%;
-  background: var(--sf-accent);
-  border: 4px solid #FFFFFF;
-  box-shadow: 0 0 0 1px var(--sf-accent);
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-#alphaRange::-webkit-slider-thumb:hover {
-  transform: scale(1.12);
-}
-
-#alphaRange::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--sf-accent);
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 0 0 1px var(--sf-accent);
-  cursor: pointer;
-}
-
-.range-value {
-  position: absolute;
-  top: -42px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--sf-ink) !important;
-  color: #FFFFFF !important;
-  padding: 4px 11px;
-  border-radius: 7px;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  box-shadow: none !important;
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-
-.range-value::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px 5px 0;
-  border-style: solid;
-  border-color: var(--sf-ink) transparent transparent transparent;
-}
-
-.range-wrap:hover .range-value {
-  opacity: 1;
-}
-
-/* Result Section */
-#resultSection .card {
-  border: 1px solid #C9DED9 !important;
-}
-
-#resultSection .card-header {
-  background: var(--sf-soft) !important;
-  color: var(--sf-accent-dark) !important;
-  border-bottom: 1px solid #D5E7E2 !important;
-  font-weight: 700;
-}
-
-#resultSection img {
-  background: #F8F9FA;
-  object-fit: contain;
-  max-height: 650px;
-}
-
-.btn-outline-light {
-  color: var(--sf-ink) !important;
-  border: 1px solid #D5DADF !important;
-  background: #FFFFFF !important;
-  border-radius: 10px !important;
-  font-weight: 600;
-  padding: 10px 20px;
-}
-
-.btn-outline-light:hover {
-  color: var(--sf-accent-dark) !important;
-  background: var(--sf-soft) !important;
-  border-color: var(--sf-accent) !important;
-}
-
-/* Examples */
-.examples-section,
-.faq-section {
-  margin-top: 3.5rem !important;
-}
-
-.examples-section .example-flow {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: #FAFAF8 !important;
-  border: 1px solid var(--sf-border) !important;
-}
-
-.examples-section .example-role {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  color: var(--sf-muted) !important;
-  margin-bottom: 0.6rem;
-  text-transform: uppercase;
-}
-
-.examples-section .example-image {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  border-radius: 12px;
-  border: 1px solid var(--sf-border) !important;
-  background: #FFFFFF !important;
-}
-
-.examples-section .example-arrow {
-  color: var(--sf-accent);
-  font-size: 1.7rem;
-  font-weight: 700;
-}
-
-/* FAQ */
-.faq-section .accordion-item {
-  background: #FFFFFF !important;
-  border: 1px solid var(--sf-border) !important;
-  margin-bottom: 0.8rem;
-  border-radius: 12px !important;
-  overflow: hidden;
-}
-
-.faq-section .accordion-button {
-  background: #FFFFFF !important;
-  color: var(--sf-ink) !important;
-  font-weight: 650;
-  box-shadow: none !important;
-}
-
-.faq-section .accordion-button:not(.collapsed) {
-  background: var(--sf-soft) !important;
-  color: var(--sf-accent-dark) !important;
-}
-
-.faq-section .accordion-button:focus {
-  box-shadow: 0 0 0 3px rgba(57, 124, 120, 0.12) !important;
-}
-
-.faq-section .accordion-body {
-  color: var(--sf-muted) !important;
-  background: #FFFFFF;
-}
-
-/* Footer */
-.footer-section {
-  background: #17243A !important;
-  border-top: 0 !important;
-  padding: 3.5rem 0 2rem !important;
-  margin-top: 5rem !important;
-  color: #D0D5DD !important;
-}
-
-.footer-section h5 {
-  color: #FFFFFF !important;
-  font-family: 'Inter', sans-serif !important;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.footer-section p {
-  color: #D0D5DD !important;
-}
-
-.footer-section .text-muted {
-  color: #AEB8C6 !important;
-}
-
-.footer-link {
-  color: #D0D5DD !important;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 0.75rem;
-  transition: color 0.2s;
-}
-
-.footer-link:hover {
-  color: #8CC4BA !important;
-}
-
-.social-icon {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 12px !important;
-  color: #FFFFFF !important;
-  margin-right: 10px;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.social-icon:hover {
-  background: var(--sf-accent) !important;
-  transform: translateY(-2px);
-}
-
-.footer-section hr {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-}
-
-/* Loading Overlay */
-.loader-overlay {
-  background: rgba(245, 243, 238, 0.96) !important;
-  backdrop-filter: blur(8px);
-}
-
-.loader-overlay h3 {
-  color: var(--sf-ink) !important;
-  font-family: 'Inter', sans-serif !important;
-  letter-spacing: 0.04em !important;
-}
-
-.loader-overlay p {
-  color: var(--sf-muted) !important;
-}
-
-.cyber-spinner {
-  border-top-color: var(--sf-accent) !important;
-  border-right-color: var(--sf-gold) !important;
-  box-shadow: none !important;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 9px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--sf-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #C8D0D3;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--sf-accent);
-}
-
-/* Remove unnecessary effects */
-.fade-in-up {
-  animation: fadeInUp 0.55s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Layout */
-@media (max-width: 767.98px) {
-  .header-section {
-    padding: 3rem 0 2rem !important;
-  }
-
-  .header-section h1 {
-    font-size: 2.35rem !important;
-  }
-
-  .card-body {
-    padding: 1.1rem !important;
-  }
-
-  .preview-image {
-    height: 230px;
-  }
-
-  .range-wrap {
-    max-width: 100%;
-  }
-
-  .btn-primary {
-    width: 100%;
-    padding: 14px 20px !important;
-  }
-
-  .examples-section .example-flow {
-    flex-direction: column;
-  }
-
-  .examples-section .example-arrow {
-    transform: rotate(90deg);
-  }
-
-  .footer-section {
-    padding: 2.5rem 0 1.5rem !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleForge AI | Neural Style Transfer</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #F5F3EE;
+            --white: #FFFFFF;
+            --navy: #17243A;
+            --muted: #667085;
+            --border: #E3E5E8;
+            --teal: #397C78;
+            --teal-dark: #28625F;
+            --teal-light: #EDF5F3;
+            --gold: #C5A46D;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--navy);
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255,255,255,.96);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--navy);
+            letter-spacing: -1px;
+        }
+
+        .navbar-brand i {
+            color: var(--teal);
+            margin-right: 8px;
+        }
+
+        .nav-link {
+            color: #475467 !important;
+            font-weight: 600;
+            margin: 0 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--teal) !important;
+        }
+
+        .hero {
+            padding: 90px 0 45px;
+        }
+
+        .eyebrow {
+            color: var(--teal);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.3rem);
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.12;
+            margin: 15px 0;
+            color: var(--navy);
+        }
+
+        .hero h1 span {
+            color: var(--teal);
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .main-container {
+            max-width: 1120px;
+            margin: auto;
+        }
+
+        .panel {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(23,36,58,.055);
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .panel-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .panel-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: var(--teal);
+            background: var(--teal-light);
+            font-size: 1.05rem;
+        }
+
+        .panel-header h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 750;
+        }
+
+        .panel-header p {
+            color: var(--muted);
+            font-size: .8rem;
+            margin: 3px 0 0;
+        }
+
+        .panel-body {
+            padding: 24px;
+        }
+
+        .preview {
+            height: 280px;
+            width: 100%;
+            border: 1.5px dashed #CBD5D8;
+            border-radius: 14px;
+            background: #F8F9FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 18px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .placeholder-icon {
+            font-size: 2rem;
+            color: var(--teal);
+            margin-bottom: 12px;
+        }
+
+        .upload-label {
+            display: block;
+            font-size: .9rem;
+            font-weight: 650;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            background: #FFFFFF;
+            border: 1px solid #D7DCE1;
+            color: var(--navy);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 4px rgba(57,124,120,.12);
+        }
+
+        .form-control::file-selector-button {
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            border: 0;
+            border-radius: 7px;
+            padding: 8px 12px;
+            margin-right: 10px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .settings-panel {
+            margin-top: 25px;
+            padding: 28px;
+            border-radius: 18px;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+        }
+
+        .setting-title {
+            font-size: .92rem;
+            font-weight: 750;
+            margin-bottom: 18px;
+        }
+
+        .range-value {
+            color: var(--teal);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        #alphaRange {
+            width: 100%;
+            accent-color: var(--teal);
+            cursor: pointer;
+            margin: 12px 0;
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .btn-generate {
+            background: var(--teal);
+            color: white;
+            border: 0;
+            padding: 15px 32px;
+            border-radius: 11px;
+            font-weight: 750;
+            font-size: 1rem;
+            transition: .2s ease;
+        }
+
+        .btn-generate:hover {
+            background: var(--teal-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .result-panel {
+            margin-top: 35px;
+        }
+
+        .result-image {
+            display: block;
+            width: 100%;
+            max-height: 650px;
+            object-fit: contain;
+            background: #F8F9FA;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 11px 22px;
+            background: var(--navy);
+            color: #FFFFFF;
+            border-radius: 9px;
+            font-weight: 650;
+        }
+
+        .btn-download:hover {
+            background: var(--teal);
+            color: #FFFFFF;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+        }
+
+        .example-card {
+            height: 100%;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 16px;
+        }
+
+        .example-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: contain;
+            background: #F8F9FA;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .example-label {
+            font-size: .76rem;
+            font-weight: 750;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .7px;
+            margin-bottom: 9px;
+        }
+
+        .faq-section {
+            margin-top: 65px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border) !important;
+            border-radius: 11px !important;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-weight: 700;
+            color: var(--navy);
+            background: white;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--teal-light);
+            color: var(--teal-dark);
+        }
+
+        .accordion-body {
+            color: var(--muted);
+        }
+
+        footer {
+            margin-top: 80px;
+            background: var(--navy);
+            color: #D0D5DD;
+            padding: 45px 0 25px;
+        }
+
+        footer h5 {
+            color: white;
+            font-weight: 750;
+        }
+
+        footer a {
+            color: #D0D5DD;
+        }
+
+        footer a:hover {
+            color: #8CC4BA;
+        }
+
+        .footer-brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .footer-brand i {
+            color: #8CC4BA;
+        }
+
+        .loader-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(245,243,238,.96);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .loader-overlay.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 55px;
+            height: 55px;
+            border: 4px solid #DCE8E5;
+            border-top-color: var(--teal);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 55px 0 30px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .preview {
+                height: 230px;
+            }
+
+            .panel-body {
+                padding: 17px;
+            }
+
+            .settings-panel {
+                padding: 20px;
+            }
+
+            .btn-generate {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-brain"></i>StyleForge AI
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#examples">Examples</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container main-container">
+        <div class="eyebrow">AI-Powered Creativity</div>
+        <h1>Transform Images.<br><span>Create Art.</span></h1>
+        <p>
+            Bring your imagination to life with neural style transfer.
+            Combine your favourite image with artistic styles to create
+            something truly unique.
+        </p>
+    </div>
+</header>
+
+<main class="container main-container pb-4">
+
+    <form method="POST" enctype="multipart/form-data"
+          id="uploadForm">
+
+        {{ form.hidden_tag() }}
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div>
+                            <h5>Content Image</h5>
+                            <p>Your original photograph</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="preview" id="contentPreview">
+                            {% if content_image %}
+                                <img src="{{ url_for('send_image', filename=content_image) }}"
+                                     alt="Content Image">
+                            {% else %}
+                                <div>
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-cloud-arrow-up"></i>
+                                    </div>
+                                    <div>Select your content image</div>
+                                    <small>JPG, PNG or JPEG</small>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <label class="upload-label">Upload Content Image</label>
+                        {{ form.content(class="form-control", onchange="previewFile(this, 'contentPreview')") }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div>
+                            <h5>Style Reference</h5>
+                            <p>Choose an artistic style</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="preview" id="stylePreview">
+                            {% if style_image %}
+                                <img src="{{ url_for('send_image', filename=style_image) }}"
+                                     alt="Style Reference">
+                            {% else %}
+                                <div>
+                                    <div class="placeholder-icon">
+                                        <i class="fas fa-paintbrush"></i>
+                                    </div>
+                                    <div>Select your style image</div>
+                                    <small>Painting, sketch or artwork</small>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <label class="upload-label">Upload Style Image</label>
+                        {{ form.style(class="form-control", onchange="previewFile(this, 'stylePreview')") }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="settings-panel">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="setting-title mb-0">
+                    <i class="fas fa-sliders me-2" style="color:var(--teal)"></i>
+                    Style Strength
+                </div>
+
+                <div class="range-value" id="rangeValue">
+                    {{ form.alpha.data if form.alpha.data is not none else '1.0' }}
+                </div>
+            </div>
+
+            <p class="section-subtitle small mt-2">
+                Control how strongly the artistic style influences your image.
+            </p>
+
+            {{ form.alpha(
+                class="form-range",
+                id="alphaRange",
+                type="range",
+                min="0",
+                max="1",
+                step="0.1"
+            ) }}
+
+            <div class="range-labels">
+                <span>0.0 · Original image</span>
+                <span>1.0 · Strong style</span>
+            </div>
+
+            <div class="text-center mt-4">
+                {{ form.submit(class="btn btn-generate", value="Generate Artwork") }}
+            </div>
+        </div>
+
+    </form>
+
+    {% if error %}
+    <div class="alert alert-danger mt-4" role="alert">
+        <strong>Processing error:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    {% if result_image %}
+    <section class="result-panel" id="resultSection">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-icon">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                    <h5>Your Artwork</h5>
+                    <p>Your stylized image is ready</p>
+                </div>
+            </div>
+
+            <img src="{{ url_for('send_image', filename=result_image) }}"
+                 class="result-image"
+                 alt="Generated artwork">
+
+            <div class="p-4 text-center">
+                <a href="{{ url_for('send_image', filename=result_image) }}"
+                   download
+                   class="btn-download">
+                    <i class="fas fa-download me-2"></i>Download Artwork
+                </a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="mt-5" id="examples">
+        <div class="text-center mb-4">
+            <div class="eyebrow">Creative Inspiration</div>
+            <h2 class="section-heading mt-2">Explore the Possibilities</h2>
+            <p class="section-subtitle">
+                See how content and style images combine to create artwork.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="example-card">
+                    <div class="example-label">Content Image</div>
+                    <img src="{{ url_for('send_example', filename='brad_pitt.jpg') }}"
+                         alt="Example content image">
+
+                    <div class="text-center my-3" style="color:var(--teal)">
+                        <i class="fas fa-plus"></i>
+                    </div>
+
+                    <div class="example-label">Style Reference</div>
+                    <img src="{{ url_for('send_example', filename='sketch.png') }}"
+                         alt="Sketch style reference">
+
+                    <div class="text-center my-3" style="color:var(--teal)">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+
+                    <div class="example-label">Stylized Output</div>
+                    <img src="{{ url_for('send_example', filename='stylized_brad_pitt.jpg') }}"
+                         alt="Sketch style transfer result">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="example-card">
+                    <div class="example-label">Content Image</div>
+                    <img src="{{ url_for('send_example', filename='brad_pitt.jpg') }}"
+                         alt="Example content image">
+
+                    <div class="text-center my-3" style="color:var(--teal)">
+                        <i class="fas fa-plus"></i>
+                    </div>
+
+                    <div class="example-label">Style Reference</div>
+                    <img src="{{ url_for('send_example', filename='picasso_seated_nude_hr.jpg') }}"
+                         alt="Artistic style reference">
+
+                    <div class="text-center my-3" style="color:var(--teal)">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+
+                    <div class="example-label">Stylized Output</div>
+                    <img src="{{ url_for('send_example', filename='stylized_brad_pitt (1).jpg') }}"
+                         alt="Artistic style transfer result">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="features">
+        <div class="text-center mb-4">
+            <div class="eyebrow">The Technology</div>
+            <h2 class="section-heading mt-2">How It Works</h2>
+            <p class="section-subtitle">
+                Transform your images in a few simple steps.
+            </p>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="panel p-4">
+                    <div class="panel-icon mb-3">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h5 class="fw-bold">01. Upload</h5>
+                    <p class="section-subtitle mb-0">
+                        Select a content image and an artistic style reference.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel p-4">
+                    <div class="panel-icon mb-3">
+                        <i class="fas fa-sliders"></i>
+                    </div>
+                    <h5 class="fw-bold">02. Customize</h5>
+                    <p class="section-subtitle mb-0">
+                        Adjust the style strength to control the final appearance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel p-4">
+                    <div class="panel-icon mb-3">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h5 class="fw-bold">03. Create</h5>
+                    <p class="section-subtitle mb-0">
+                        Generate your artwork and download the result.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="text-center mb-4">
+            <div class="eyebrow">Need Help?</div>
+            <h2 class="section-heading mt-2">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faq1">
+                        What is Neural Style Transfer?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Neural Style Transfer combines the content of one image
+                        with the artistic characteristics of another image.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faq2">
+                        How does the style strength work?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The strength value controls the influence of the style
+                        image. The exact visual result depends on the model
+                        and the input images.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faq3">
+                        Which image formats can I use?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Use image formats supported by your Flask application's
+                        upload configuration, such as JPG and PNG if enabled.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#faq4">
+                        Which technologies power this project?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Python, Flask and PyTorch power the image-processing
+                        application.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container main-container">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="footer-brand">
+                    <i class="fas fa-brain me-2"></i>StyleForge AI
+                </div>
+                <p class="mt-3 mb-0">
+                    Where artificial intelligence meets artistic imagination.
+                    Transform ordinary images into creative artwork.
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Explore</h5>
+                <p class="mb-2"><a href="#">Home</a></p>
+                <p class="mb-2"><a href="#examples">Examples</a></p>
+                <p class="mb-2"><a href="#features">How It Works</a></p>
+                <p class="mb-2"><a href="#faq">FAQ</a></p>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Technology</h5>
+                <p class="mb-2">Python</p>
+                <p class="mb-2">PyTorch</p>
+                <p class="mb-2">Flask</p>
+                <p class="mb-2">Deep Learning</p>
+            </div>
+        </div>
+
+        <hr class="my-4" style="border-color:rgba(255,255,255,.15)">
+
+        <div class="text-center small">
+            © 2026 StyleForge AI · Neural Style Transfer Project
+        </div>
+    </div>
+</footer>
+
+<div class="loader-overlay" id="loader">
+    <div class="spinner mb-4"></div>
+    <h4 class="fw-bold">Creating Your Artwork</h4>
+    <p class="section-subtitle">Please wait while the model processes your images.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function previewFile(input, previewId) {
+        const preview = document.getElementById(previewId);
+        const file = input.files && input.files[0];
+
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            alert("Please select a valid image file.");
+            input.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            preview.innerHTML = "";
+
+            const img = document.createElement("img");
+            img.src = event.target.result;
+            img.alt = "Selected image preview";
+
+            preview.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    const alphaRange = document.getElementById("alphaRange");
+    const rangeValue = document.getElementById("rangeValue");
+
+    function updateRange() {
+        if (!alphaRange || !rangeValue) return;
+
+        rangeValue.textContent = Number(alphaRange.value).toFixed(1);
+    }
+
+    if (alphaRange) {
+        alphaRange.addEventListener("input", updateRange);
+        updateRange();
+    }
+
+    const uploadForm = document.getElementById("uploadForm");
+    const loader = document.getElementById("loader");
+
+    if (uploadForm && loader) {
+        uploadForm.addEventListener("submit", function() {
+            loader.classList.add("active");
+        });
+    }
+
+    window.addEventListener("load", function() {
+        const resultSection = document.getElementById("resultSection");
+
+        if (resultSection) {
+            resultSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
