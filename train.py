@@ -30,14 +30,14 @@ def parse_arguments():
     parser.add_argument('--crop', action='store_true', default=True,
                         help='Crop image')
     
-    parser.add_argument('--batch_size', type=int, default=4,
+    parser.add_argument('--batch_size', type=int, default=2,
                         help='Batch size')
     parser.add_argument('--lr', type=float, default=1e-4,
                         help='Learning rate')
     parser.add_argument('--lr_decay', type=float, default=5e-5,
                         help='Learning rate decay')
     
-    parser.add_argument('--epochs', type=int, default=1,
+    parser.add_argument('--epochs', type=int, default=10,
                         help='Number of epochs')
     
     parser.add_argument('--content_weight', type=float, default=1.0,
